@@ -4,9 +4,6 @@ import znc
 class pyawaynick(znc.Module):
     module_types = [znc.CModInfo.UserModule]
 
-    away_nick_timer = None
-    back_nick_timer = None
-
     def OnClientLogin(self):
         self.GetNetwork().PutIRC("NICK " + self.GetNetwork().GetNick())
 
