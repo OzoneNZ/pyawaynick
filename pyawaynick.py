@@ -4,13 +4,16 @@ import znc
 class pyawaynick(znc.Module):
     module_types = [znc.CModInfo.UserModule]
 
+
     def OnClientLogin(self):
         self.GetNetwork().PutIRC("NICK " + self.GetNetwork().GetNick())
+
 
     def OnClientDisconnect(self):
         if not self.GetNetwork().IsUserAttached():
             if "away_nick" in self.nv:
                 self.GetNetwork().PutIRC("NICK " + self.nv["away_nick"])
+
 
     def OnModCommand(self, sCommand):
         sCommand = sCommand.split(" ")
