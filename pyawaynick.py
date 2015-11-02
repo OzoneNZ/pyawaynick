@@ -7,12 +7,6 @@ class pyawaynick(znc.Module):
     away_nick_timer = None
     back_nick_timer = None
 
-    def OnIRCRegistration(self, sPass, sNick, sIdent, sRealName):
-        pass
-
-    def OnIRCDisconnected(self):
-        pass
-
     def OnClientLogin(self):
         self.GetNetwork().PutIRC("NICK " + self.GetNetwork().GetNick())
 
